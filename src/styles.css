@@ -1,1 +1,160 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --main-color: rgb(245, 245, 245);
+    --accent-color: rgb(224, 224, 224);
+  }
+
+/*  #all-content {
+    display: none;
+  }*/
+
+  #loader {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+html, body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+  .page-content {
+    float: left;
+    flex: 1;
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+  .page-content .breadcrumb {
+    padding: 14px 16px;
+    border-radius: 5px;
+    max-width: 250px;
+    
+  }
+
+  .page-content ul.breadcrumb {
+    list-style: none;
+    background-color: rgb(245, 245, 245);
+}
+
+.page-content ul.breadcrumb li {
+    display: inline;
+    font-size: 20px;
+}
+
+.page-content ul.breadcrumb li+li:before {
+    padding: 5px;
+    color: gray;
+    content: "/\00a0";
+}
+
+.page-content ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+}
+.page-content ul.breadcrumb li a:hover {
+    color: #0275d8;
+    text-decoration: underline;
+}
+#content{
+    flex: 1;
+    display: flex;
+    width: 100%;
+}
+#content section{
+    flex: 1;
+}
+.books-info{
+    border: 1px solid var(--accent-color);
+    border-radius: 5px
+}
+.books-info h2{
+    background-color: var(--main-color);
+}
+.books-info img{
+    margin: 16px 32px;
+}
+
+.books-content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.books-content .book {
+    border: 1px solid #333;
+    border-radius: 5px;
+    width: 250px;
+    margin: 20px;
+}
+
+.books-content .book .title-book {
+    background-color: var(--main-color);
+    border-bottom: 1px solid #333;
+    background-color: var(--accent-color);
+    font-size: 30px;
+    color: white;
+}
+
+
+.books-content .book .img-book {
+    text-align: center;
+    padding-top: 5px;
+}
+
+.books-content .book .img-book > img {
+    width: 200px;
+    height: 200px;
+}
+
+.books-content .book .title-book {
+    text-align: justify;
+    text-justify: inter-word;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 10px 10px;
+}
+
+.books-content .book .content-book {
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 10px 10px;
+}
+
+.books-content .book .footer-book {
+    text-align: right;
+    padding: 10px 10px;
+}
+
+.books-content .book .footer-book .submit-detail-book {
+    border-radius: 5px;
+    background-color: #44a0ec;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+}
+.item-title{
+    font-size: 5em;
+}
+.item-body{
+    display: flex;
+    flex-direction: row;
+    padding-top: 16px;
+    align-items:stretch;
+}
+.item-img > img{
+    width: 100%;
+    height: 100%;
+    flex: 1 100%;
+
+}
+.item-description{
+    flex: 1 100%;
+}
