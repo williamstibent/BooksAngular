@@ -1,0 +1,91 @@
+.breadcrumb {
+    padding: 14px 16px;
+    border-radius: 5px;
+    max-width: 250px;
+    
+  }
+
+ul.breadcrumb {
+    list-style: none;
+    background-color: rgb(245, 245, 245);
+}
+
+ul.breadcrumb li {
+    display: inline;
+    font-size: 20px;
+}
+
+ul.breadcrumb li+li:before {
+    padding: 5px;
+    color: gray;
+    content: "/\00a0";
+}
+
+ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+    color: #0275d8;
+    text-decoration: underline;
+}
+.books-content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.books-content .book {
+    border: 1px solid #333;
+    border-radius: 5px;
+    width: 250px;
+    margin: 20px;
+}
+
+.books-content .book .title-book {
+    background-color: var(--main-color);
+    border-bottom: 1px solid #333;
+    background-color: var(--accent-color);
+    font-size: 30px;
+    color: white;
+}
+
+.books-content .book .img-book {
+    text-align: center;
+    padding-top: 5px;
+}
+
+.books-content .book .img-book > img {
+    width: 200px;
+    height: 200px;
+}
+
+.books-content .book .title-book {
+    text-align: justify;
+    text-justify: inter-word;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 10px 10px;
+}
+
+.books-content .book .content-book {
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 10px 10px;
+}
+
+.books-content .book .footer-book {
+    text-align: right;
+    padding: 10px 10px;
+}
+
+.books-content .book .footer-book .submit-detail-book {
+    border-radius: 5px;
+    background-color: #44a0ec;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+}

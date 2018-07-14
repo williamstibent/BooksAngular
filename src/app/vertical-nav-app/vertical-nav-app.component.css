@@ -1,8 +1,9 @@
 nav {
-    width: 350px;
+    width: 16em;
+    height: 100%;
     border-right: 1px solid #333;
 }
-  nav ul {
+nav ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
@@ -24,15 +25,18 @@ nav li > a {
     padding: 16px 32px;
     text-decoration: none;
 }
+
 nav li > a:hover{
 background-color: lightblue;
 }
+
 #nav-header{
     background-color: var(--accent-color);
     height: 100px;
     display: flex;
     padding-left: 10px;
 }
+
 #nav-header h2{
     color: white;
     float: right;
@@ -40,11 +44,13 @@ background-color: lightblue;
     margin: auto;
     margin-left: 16px
 }
+
 #nav-header div{
     float: right;
     flex: 1;
     margin: auto;
 }
+
 #nav-header > img{
     margin: auto;
 }
