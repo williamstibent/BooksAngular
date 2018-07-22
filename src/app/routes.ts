@@ -3,6 +3,7 @@ import { BookMainComponent } from './book-main/book-main.component'
 import { CollectionsComponent } from './collections/collections.component'
 import { FavoritesComponent } from './favorites/favorites.component'
 import { BookDetailComponent } from './book-detail/book-detail.component'
+import { LoginComponent } from './login/login.component'
 
 export const routes: Routes = [
     {
@@ -20,6 +21,10 @@ export const routes: Routes = [
     {
         path: 'detail/:id',
         component: BookDetailComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
     },
     {
         path: '**',

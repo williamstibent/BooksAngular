@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { RouterModule } from '@angular/router';
+
+import { routes } from './routes'
 import { AppComponent } from './app.component';
 import { TopNavAppComponent } from './top-nav-app/top-nav-app.component';
 import { VerticalNavAppComponent } from './vertical-nav-app/vertical-nav-app.component';
@@ -13,6 +16,11 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { MainComponent } from './main/main.component';
 
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatInputModule, MatPaginatorModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
+import { LoginComponent } from './login/login.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,10 +32,21 @@ import { MainComponent } from './main/main.component';
     CollectionsComponent,
     FavoritesComponent,
     BookDetailComponent,
+    LoginComponent,
     MainComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
     AppRoutingModule
   ],
   providers: [],
