@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { books } from '../../../data-books'
 
 @Component({
   selector: 'app-books-grid',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BooksGridComponent implements OnInit {
 
-  constructor() { }
+  booksList: any[];
+  constructor() { 
+    this.booksList = []
+  }
 
   ngOnInit() {
+    this.booksList = books.items
+    debugger;
   }
 
 }
