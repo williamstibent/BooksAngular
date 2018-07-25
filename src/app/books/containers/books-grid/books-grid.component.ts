@@ -15,7 +15,6 @@ export class BooksGridComponent implements OnInit {
 
   ngOnInit() {
     this.booksList = books.items
-    debugger;
   }
 
 }
