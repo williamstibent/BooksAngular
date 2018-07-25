@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VerticalNavAppComponent } from './vertical-nav-app.component';
+import { BookGridTemplateComponent } from './book-grid-template.component';
 
-describe('VerticalNavAppComponent', () => {
-  let component: VerticalNavAppComponent;
-  let fixture: ComponentFixture<VerticalNavAppComponent>;
+describe('BookGridTemplateComponent', () => {
+  let component: BookGridTemplateComponent;
+  let fixture: ComponentFixture<BookGridTemplateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VerticalNavAppComponent ]
+      declarations: [ BookGridTemplateComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VerticalNavAppComponent);
+    fixture = TestBed.createComponent(BookGridTemplateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
