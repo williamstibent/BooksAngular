@@ -6,10 +6,12 @@ import { LeftNavComponent } from "./left-nav-app/left-nav-app.component";
 import { MainContentComponent } from "./main-content/main-content.component";
 import { TopNavAppComponent } from "./top-nav-app/top-nav-app.component";
 import { routes } from "./routes";
+import { MaterialModule } from '../material.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    MaterialModule,
     RouterModule.forChild(routes)
   ],
   declarations: [MainComponent, LeftNavComponent,

@@ -3,6 +3,15 @@
     padding: 20px;
     overflow-y: scroll;
 }
-.top-nav-app{
-    height: 3.5em;
+app-main{
+    flex: 1 100%;
+    top: 56px;
+
+}
+top-nav-app{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
 }

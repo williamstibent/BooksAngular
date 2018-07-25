@@ -12,7 +12,9 @@ ul.breadcrumb {
 
 ul.breadcrumb li {
     display: inline;
-    font-size: 20px;
+}
+ul.breadcrumb li a {
+    font-size: 15px;
 }
 
 ul.breadcrumb li+li:before {
@@ -46,7 +48,7 @@ ul.breadcrumb li a:hover {
     background-color: var(--main-color);
     border-bottom: 1px solid #333;
     background-color: var(--accent-color);
-    font-size: 30px;
+    font-size: 20px;
     color: white;
 }
 
@@ -87,5 +89,5 @@ ul.breadcrumb li a:hover {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 15px;
+    font-size: 10px;
 }
