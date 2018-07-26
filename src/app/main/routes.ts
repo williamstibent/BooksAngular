@@ -7,7 +7,7 @@ export const routes: Routes = [
         component: MainComponent,
         children: [
             {
-                path: '',
+                path: 'grid',
                 loadChildren: '../books/books.module#BooksModule'
             },
             {
@@ -25,6 +25,6 @@ export const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: '/'
+        redirectTo: 'grid'
     }
 ];

@@ -8,6 +8,11 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: './auth/auth.module#AuthModule',
+  },
+  {
+    path:'**',
+    redirectTo:'main/grid',
+    pathMatch: 'full'
   }
 ];
 

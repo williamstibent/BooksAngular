@@ -9,6 +9,7 @@
     border-radius: 5px;
     width: 250px;
     margin: 20px;
+    height: 480px;
 }
 
 .books-content .book .title-book {
@@ -40,6 +41,9 @@
     text-align: justify;
     text-justify: inter-word;
     padding: 10px 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 64px;
 }
 
 .books-content .book .footer-book {

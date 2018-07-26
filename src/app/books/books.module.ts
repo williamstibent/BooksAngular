@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'detail/:id',
     component: BookDetailComponent
+  },
+  {
+    path:'**',
+    redirectTo: '/'
   }
 ];
 @NgModule({

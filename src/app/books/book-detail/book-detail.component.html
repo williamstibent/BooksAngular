@@ -3,13 +3,13 @@
         <span>{{book.volumeInfo?.title}}</span>
     </div>
     <div class="item-body">
+        <div class="item-img">
+            <img [src]="book.volumeInfo?.imageLinks.smallThumbnail">
+        </div>
         <div class="item-description">
             <p>
                 {{book.volumeInfo?.description}}
             </p>
-        </div>
-        <div class="item-img">
-            <img [src]="book.volumeInfo?.imageLinks.smallThumbnail">
         </div>
     </div>
 </div>
