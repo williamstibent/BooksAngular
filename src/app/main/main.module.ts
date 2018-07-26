@@ -7,6 +7,8 @@ import { MainContentComponent } from "./main-content/main-content.component";
 import { TopNavAppComponent } from "./top-nav-app/top-nav-app.component";
 import { routes } from "./routes";
 import { MaterialModule } from '../material.module';
+import { importExpr } from '@angular/compiler/src/output/output_ast';
+import { EmailPipe } from "../app-pipes/pipes/email.pipe";
 
 @NgModule({
   imports: [
@@ -15,7 +17,7 @@ import { MaterialModule } from '../material.module';
     RouterModule.forChild(routes)
   ],
   declarations: [MainComponent, LeftNavComponent,
-    MainContentComponent, TopNavAppComponent],
+    MainContentComponent, TopNavAppComponent, EmailPipe],
   exports: [MainComponent]
 })
 export class MainModule { }

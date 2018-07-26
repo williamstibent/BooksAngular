@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  stateAside: string
+
+  constructor() {
+    this.stateAside = 'open'
+   }
 
   ngOnInit() {
+  }
+
+  closeAside(state){
+    this.stateAside = state
   }
 
 }
