@@ -1,5 +1,5 @@
-<top-nav-app class="top-nav-app"></top-nav-app>
+<top-nav-app class="top-nav-app" (actionAside)="closeAside($event)"></top-nav-app>
 <div id="content">
-  <left-nav-app></left-nav-app>
+  <left-nav-app [asideState]="stateAside"></left-nav-app>
   <main-content class="page-content"></main-content>
 </div>
