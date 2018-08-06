@@ -1,0 +1,32 @@
+<form (ngSubmit)="submit()" #loginForm="ngForm">
+  <mat-card-content>
+    <table cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field>
+            <input type="email" placeholder="Email" [(ngModel)]="login.email" name="email" #email="ngModel" required matInput>
+            <div [hidden]="email.valid || email.pristine" role="alert">
+              Invalid email
+            </div>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field>
+            <input type="password" placeholder="Password" [(ngModel)]="login.password" name="password" #password="ngModel" required matInput>
+            <div [hidden]="password.valid || password.pristine" role="alert">
+              Invalid password
+            </div>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+  </mat-card-content>
+  <mat-card-actions>
+    <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Login</button>
+  </mat-card-actions>
+</form>
+<mat-card-actions>
+  <button mat-raised-button (click)="signGoogle()" color="primary">Sign in using Google+</button>
+</mat-card-actions>

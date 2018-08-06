@@ -1,26 +1,23 @@
 import { Routes } from '@angular/router';
 import { MainComponent } from "./containers/main/main.component";
-/* import { FavoritesComponent } from '../favorites/favorites.component'; */
+import { AuthGuardService } from '../auth/services/guards/auth-guard.service';
+
 export const routes: Routes = [
     {
         path: '',
         component: MainComponent,
+        canActivate: [AuthGuardService],
         children: [
             {
                 path: 'grid',
-                loadChildren: '../books/books.module#BooksModule'
+                loadChildren: '../books/books.module#BooksModule',
+                canActivate: [AuthGuardService]
             },
             {
                 path: 'collections',
-                loadChildren: '../collections/collections.module#CollectionsModule'
+                loadChildren: '../collections/collections.module#CollectionsModule',
+                canActivate: [AuthGuardService]
             }
-            /* ,
-            {
-                path: 'favorites',
-                component: FavoritesComponent,
-                loadChildren: 'favorites'
-            } */
-
         ]
     },
     {

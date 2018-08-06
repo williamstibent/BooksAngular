@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { trigger, transition, state, style, animate } from "@angular/animations";
+import { AuthService } from '../../auth/services/auth/auth.service';
 
 @Component({
   selector: 'left-nav-app',
@@ -23,11 +24,14 @@ export class LeftNavComponent implements OnInit {
   @Input() asideState: string
   today: Date
   
-  constructor() {
+  constructor(private authService: AuthService) {
     this.today = new Date()
   }
 
   ngOnInit() {
   }
 
+  logout(){
+    this.authService.logout();
+  }
 }
