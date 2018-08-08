@@ -58,3 +58,6 @@ app-main{
 .books-info img {
 	margin: 16px 32px;
 }
+app-login{
+    height: 100%;
+}

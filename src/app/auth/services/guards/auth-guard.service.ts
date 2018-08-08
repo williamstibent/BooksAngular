@@ -5,22 +5,20 @@ import { Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate, CanActivateChild  {
+export class AuthGuardService implements CanActivate, CanActivateChild {
 
   constructor(private router: Router) { }
 
-  canActivate():Observable<boolean>{
-    debugger
-    if(!localStorage.getItem('bzgBooksApp')){
+  canActivate(): Observable<boolean> {
+    if (!localStorage.getItem('bzgBooksApp')) {
       this.router.navigate(['/login']);
       return of(false);
     }
     return of(true);
   }
 
-  canActivateChild():Observable<boolean>{
-    debugger
-    if(!localStorage.getItem('bzgBooksApp')){
+  canActivateChild(): Observable<boolean> {
+    if (!localStorage.getItem('bzgBooksApp')) {
       this.router.navigate(['/login']);
       return of(false);
     }

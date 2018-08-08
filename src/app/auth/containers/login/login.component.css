@@ -1,9 +1,62 @@
 mat-card {
-    width: 250px;
-    margin: 10% auto;
+    width: 480px;
+    margin: auto;
+    padding: 0;
+    top:20%;
 }
+/* mat-card:before{
+    content: "\f02d";
+    font-family: FontAwesome;
+    color:white;
+    position:absolute;
+    top:5%;
+    right: 15%;
+    font-size: xx-large;
+    opacity: 0.7;
+} */
 
 mat-card > mat-toolbar {
-    margin: -24px 0 24px -24px;
-    width: calc(100% + 48px);
+    background: url('../../../../assets/images/LoginCollage.jpg');
+    font-size: xx-large;
+    background-position-y: 40%;
+}
+
+/* Portrait */
+@media screen 
+  and (min-width: 360px) 
+  and (max-width: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+    mat-card{
+        height: 100%;
+        margin: 0;
+        width: 100%;
+        top:0%;
+
+
+    }
+    mat-card > mat-toolbar {
+        margin:0;
+        width: 100%;
+    }
+
+}
+
+/* Portrait */
+@media screen 
+  and (min-width: 360px) 
+  and (max-width: 740px) 
+  and (-webkit-max-width-ratio: 4) 
+  and (orientation: portrait) {
+    mat-card{
+        height: 100%;
+        margin: 0;;
+        top:0%;
+
+        width: 100%
+    }
+    mat-card > mat-toolbar {
+        margin:0;
+        width: 100%;
+    }
 }

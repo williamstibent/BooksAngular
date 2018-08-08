@@ -14,11 +14,9 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private authFire: AngularFireAuth) { }
 
   ngOnInit() {
-    debugger
   }
 
   login(event: IAuth) {
-    debugger
     this.authFire.auth.signInWithEmailAndPassword(event.email, event.password)
     .then(
       auth => {
@@ -31,7 +29,6 @@ export class LoginComponent implements OnInit {
   }
 
   siginGoogle(){
-    debugger
     this.authFire.auth.signInWithPopup(new auth.GoogleAuthProvider)
     .then(
       auth => {

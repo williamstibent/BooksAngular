@@ -9,13 +9,11 @@ export class AuthService {
   constructor(private router : Router) { }
 
   login(auth : any){
-    debugger
     localStorage.setItem('bzgBooksApp', JSON.stringify(auth));
     this.router.navigate(['/']);
   }
 
   logout(){
-    debugger
     localStorage.removeItem('bzgBooksApp');
     this.router.navigate(['/login']);
   }
