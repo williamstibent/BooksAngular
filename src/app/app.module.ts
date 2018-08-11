@@ -9,6 +9,8 @@ import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryDataService } from "./app-data/api-books-demo";
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireAuthModule } from '../../node_modules/angularfire2/auth';
+import { AngularFireDatabaseModule } from '../../node_modules/angularfire2/database';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,11 @@ import { HttpClientModule } from '@angular/common/http';
     MainModule,
     HttpModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
+    /* HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ), */
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

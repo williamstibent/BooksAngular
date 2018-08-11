@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiBooks: 'https://www.googleapis.com/books/v1/',
   firebase: {
     apiKey: 'AIzaSyCU27jsNT8hrKCx55BL-6bWKJ_t2pbpkt0',
     authDomain: 'biz-books-app-asdsad.firebaseapp.com',

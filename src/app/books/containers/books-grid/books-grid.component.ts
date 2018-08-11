@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksListService } from "../../services/list/books-list.service";
+import { BookList } from '../../model/BookList';
 @Component({
   selector: 'app-books-grid',
   templateUrl: './books-grid.component.html',
@@ -7,16 +8,18 @@ import { BooksListService } from "../../services/list/books-list.service";
 })
 export class BooksGridComponent implements OnInit {
 
-  booksList: any[];
+  booksList: BookList;
   constructor(private bookService: BooksListService) { 
-    this.booksList = []
+    this.bookService.searchBooks('Colombia');
   }
 
   ngOnInit() {
-    this.bookService.getBookList()
+    this.bookService.booksList
     .subscribe(
       books => {
-        this.booksList = books;
+        if (books) {
+          this.booksList = books;
+        }
       }
     );
   }
