@@ -1,5 +1,5 @@
 <div id="books-content" class="books-content">
-  <div *ngFor="let book of booksList" id="book" class="book">
+  <div *ngFor="let book of booksList?.items" id="book" class="book">
     <div class="title-book">
       <span>{{book.volumeInfo.title}}</span>
     </div>

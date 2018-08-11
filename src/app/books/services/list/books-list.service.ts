@@ -21,7 +21,6 @@ export class BooksListService {
 
   constructor(private http: HttpClient, private alertService: MessagesService, private authFire: AngularFireAuth,
     rdb: AngularFireDatabase) {
-      debugger
     this.booksList.next({ kind: "", totalItems: 0, items: [] });
     authFire.authState
       .subscribe(
