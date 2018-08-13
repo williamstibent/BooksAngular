@@ -17,6 +17,11 @@ export const routes: Routes = [
                 path: 'collections',
                 loadChildren: '../collections/collections.module#CollectionsModule',
                 canActivate: [AuthGuardService]
+            },
+            {
+                path: 'favorites',
+                loadChildren: '../favorites/favorites.module#FavoritesModule',
+                canActivate: [AuthGuardService]
             }
         ]
     },

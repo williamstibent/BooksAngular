@@ -5,12 +5,12 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MainModule } from './main/main.module';
-import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
-import { InMemoryDataService } from "./app-data/api-books-demo";
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-import { AngularFireAuthModule } from '../../node_modules/angularfire2/auth';
-import { AngularFireDatabaseModule } from '../../node_modules/angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from '../../node_modules/angularfire2';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,11 +23,9 @@ import { AngularFireDatabaseModule } from '../../node_modules/angularfire2/datab
     MainModule,
     HttpModule,
     HttpClientModule,
-    /* HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ), */
+    AngularFireModule.initializeApp(environment.firebase, 'bzbooksangular'),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

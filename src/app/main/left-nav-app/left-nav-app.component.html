@@ -1,15 +1,18 @@
 <nav id="container-nav-header" [@asideCollapse]="asideState" [ngClass]="(asideState == 'close')? 'aside-close': ''">
   <div id="nav-header">
-    <div>
-      <img src="../images/user.png" height="64px" width="64px">
+    <div class="user-image">
+      <img [src]="user?.photoURL">
     </div>
-    <h2 id="username-navbar" *ngIf="asideState == 'open'">{{ today | date | uppercase }}</h2>
-    <br/>
+    <div class="user-info">
+      <h3>{{user?.displayName}}</h3>
+      <h4>{{user?.email}}</h4>
+      <span>{{today | date:"EEEE, MMMM d, y" | uppercase}}</span>
+    </div>
   </div>
   <ul>
     <li>
       <a routerLink="">
-        <i class="fa fa-home" ></i>
+        <i class="fa fa-home"></i>
         <span *ngIf="asideState == 'open'">Inicio</span>
       </a>
     </li>

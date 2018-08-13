@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BookList } from '../../../books/model/BookList';
+import { BooksListService } from '../../../books/services/list/books-list.service';
 
 @Component({
   selector: 'app-collections',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollectionsComponent implements OnInit {
 
-  constructor() { }
+  booksList: BookList;
+  constructor(private bookService: BooksListService) {
+    this.bookService.searchBooks('Colombia');
+  }
 
   ngOnInit() {
+    this.bookService.booksList
+      .subscribe(
+        books => {
+          if (books) {
+            this.booksList = books;
+          }
+        }
+      );
   }
 
 }

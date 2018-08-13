@@ -12,20 +12,25 @@ export class BookDetailComponent implements OnInit {
 
   constructor(private router: ActivatedRoute, private bookService: BooksListService) {
     this.book = {}
-   }
+  }
 
   ngOnInit() {
     let id: string
-    //id = this.router.snapshot.paramMap.get('id')
     this.router.params.subscribe((params: Params) => {
       id = params.id;
       this.bookService.getBook(id)
         .subscribe(
-          books => {            
-            this.book = books[0];
+          books => {
+            if (books) {
+              this.book = books;
+            }
           }
         );
     });
+  }
+
+  addFavorite() {
+    this.bookService.addFavorites(this.book);
   }
 
 }
