@@ -20,7 +20,6 @@ export class FavoritesService {
           this.favsRef = rdb.list('favorites/' + this.user.uid);
         }
       );
-
   }
 
   listFavorites(): AngularFireList<any[]> {

@@ -24,9 +24,10 @@
     </table>
   </mat-card-content>
   <mat-card-actions>
-    <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Login</button>
+    <button type="submit" mat-raised-button color="accent" [disabled]="!loginForm.form.valid">Login</button>
+  </mat-card-actions>
+  <mat-card-actions>
+    <button mat-raised-button (click)="signGoogle()" color="warn">Sign in using Google+</button>
+    <button mat-raised-button (click)="signFacebook()" color="primary">Sign in using Facebook</button>
   </mat-card-actions>
 </form>
-<mat-card-actions>
-  <button mat-raised-button (click)="signGoogle()" color="primary">Sign in using Google+</button>
-</mat-card-actions>

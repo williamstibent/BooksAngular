@@ -1,9 +1,9 @@
 <nav id="container-nav-header" [@asideCollapse]="asideState" [ngClass]="(asideState == 'close')? 'aside-close': ''">
   <div id="nav-header">
     <div class="user-image">
-      <img [src]="user?.photoURL">
+      <img [src]="user?.photoURL" height="80px" width="80px">
     </div>
-    <div class="user-info">
+    <div *ngIf="asideState == 'open'" class="user-info" >
       <h3>{{user?.displayName}}</h3>
       <h4>{{user?.email}}</h4>
       <span>{{today | date:"EEEE, MMMM d, y" | uppercase}}</span>
