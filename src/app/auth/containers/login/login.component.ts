@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  siginGoogle(){
+  signGoogle(){
     this.authFire.auth.signInWithPopup(new auth.GoogleAuthProvider)
     .then(
       auth => {
