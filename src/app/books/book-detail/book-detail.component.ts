@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router'
 import { BooksListService } from "../services/list/books-list.service";
+import { Observable } from 'rxjs';
+import { Collection } from '../../collections/models/collection';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
+
 @Component({
   selector: 'app-book-detail',
   templateUrl: './book-detail.component.html',
@@ -9,9 +14,14 @@ import { BooksListService } from "../services/list/books-list.service";
 export class BookDetailComponent implements OnInit {
 
   book: any
+  collectionList: Collection[];
+  selectedCollection: string;
 
-  constructor(private router: ActivatedRoute, private bookService: BooksListService) {
+  constructor(private router: ActivatedRoute, private bookService: BooksListService, private authFire: AngularFireAuth,
+    private rdb: AngularFireDatabase) {
     this.book = {}
+    this.collectionList = null;
+    this.selectedCollection = null;
   }
 
   ngOnInit() {
@@ -27,10 +37,33 @@ export class BookDetailComponent implements OnInit {
           }
         );
     });
+    this.getListCollections();
   }
 
   addFavorite() {
     this.bookService.addFavorites(this.book);
+  }
+
+  getListCollections(){
+    this.authFire.authState
+      .subscribe(
+        user => {
+          this.rdb.list('collections/' + user.uid).snapshotChanges()
+          .subscribe(item => {
+            this.collectionList = [];
+            item.forEach(element => {
+              let x = element.payload.toJSON();
+              x["$key"] = element.key;
+              this.collectionList.push(x as Collection);
+            });
+          });
+        }
+      );
+  }
+
+  associateBookToCollection() {
+    debugger
+    this.bookService.associateBookToCollection(this.selectedCollection, this.book);
   }
 
 }

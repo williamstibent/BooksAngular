@@ -6,6 +6,12 @@
         <button class="btn btn-primary" (click)="addFavorite()">
             <i class="fa fa-heart"></i>Favorito</button>
     </div>
+    <div class="row">
+        <select [(ngModel)]="selectedCollection">
+            <option *ngFor="let collection of collectionList" [value]="collection.$key">{{ collection.name }}</option>
+        </select>
+        <button (click)="associateBookToCollection()">Asociar</button>
+    </div>
     <div class="item-body">
         <div class="item-img">
             <img [src]="book.volumeInfo?.imageLinks.smallThumbnail">

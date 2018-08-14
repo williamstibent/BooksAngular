@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from "angularfire2/auth";
-import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
-import * as firebase from "firebase/app";
-import { FavoritesService } from "../../services/favorites.service";
+import { AngularFireDatabase } from "angularfire2/database";
 import { Observable } from 'rxjs';
-
 
 @Component({
   selector: 'app-favorites',
@@ -15,8 +12,8 @@ export class FavoritesComponent implements OnInit {
 
   bookList: Observable<any[]>;
 
-  constructor(private favService: FavoritesService, private authFire: AngularFireAuth,
-    private rdb: AngularFireDatabase) { 
+  constructor(private authFire: AngularFireAuth,
+    private rdb: AngularFireDatabase) {
     this.bookList = null;
   }
 
@@ -28,5 +25,4 @@ export class FavoritesComponent implements OnInit {
         }
       );
   }
-
 }

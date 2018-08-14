@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { BooksGridComponent } from "./containers/books-grid/books-grid.component";
 import { BookDetailComponent } from "./book-detail/book-detail.component";
 import { Routes, RouterModule} from "@angular/router";
+import { FormsModule } from '@angular/forms'
+
 const routes: Routes = [
   {
     path: '',
@@ -20,7 +22,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule
   ],
   declarations: [BooksGridComponent, BookDetailComponent]
 })

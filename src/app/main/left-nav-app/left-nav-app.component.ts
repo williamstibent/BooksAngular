@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { trigger, transition, state, style, animate } from "@angular/animations";
 import { AuthService } from '../../auth/services/auth/auth.service';
-import { User } from '../../../../node_modules/firebase';
-import { AngularFireAuth } from '../../../../node_modules/angularfire2/auth';
+import { User } from 'firebase/app';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'left-nav-app',
@@ -30,15 +30,14 @@ export class LeftNavComponent implements OnInit {
   constructor(private authService: AuthService, private authFire: AngularFireAuth) {
     this.today = new Date()
   }
-
+  
   ngOnInit() {
     this.authFire.authState
-      .subscribe(
-        user => {
-          debugger
-          this.user = user;
-        }
-      )
+    .subscribe(
+      user => {
+        this.user = user;
+      }
+    );
   }
 
   logout() {

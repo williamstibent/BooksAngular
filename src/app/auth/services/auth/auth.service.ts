@@ -18,11 +18,10 @@ export class AuthService {
     this.user
       .subscribe(
         (user) => {
-          if (user) {
+          if (user)
             this.userDetails = user;
-          } else {
+          else
             this.userDetails = null;
-          }
         }
       );
   }
@@ -45,10 +44,13 @@ export class AuthService {
     }
   }
 
-
   logout() {
     localStorage.removeItem('bzgBooksApp');
     this.authFire.auth.signOut()
       .then((res) => this.router.navigate(['/login']));
+  }
+
+  profile() {
+    return this.userDetails;
   }
 }

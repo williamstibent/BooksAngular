@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BookList } from '../../../books/model/BookList';
-import { BooksListService } from '../../../books/services/list/books-list.service';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { CollectionsService } from '../../services/collections.service';
+import { Collection } from '../../models/collection';
 
 @Component({
   selector: 'app-collections',
@@ -9,20 +11,40 @@ import { BooksListService } from '../../../books/services/list/books-list.servic
 })
 export class CollectionsComponent implements OnInit {
 
-  booksList: BookList;
-  constructor(private bookService: BooksListService) {
-    this.bookService.searchBooks('Colombia');
+  collectionList: Collection[];
+  isEnabledCollectionCard: boolean
+
+  constructor(private collectionService: CollectionsService, private authFire: AngularFireAuth, private rdb: AngularFireDatabase) {
+    this.collectionList = null;
+    this.isEnabledCollectionCard = false;
   }
 
   ngOnInit() {
-    this.bookService.booksList
+    this.authFire.authState
       .subscribe(
-        books => {
-          if (books) {
-            this.booksList = books;
-          }
+        user => {
+          this.rdb.list('collections/' + user.uid).snapshotChanges()
+          .subscribe(item => {
+            this.collectionList = [];
+            item.forEach(element => {
+              let x = element.payload.toJSON();
+              x["$key"] = element.key;
+              this.collectionList.push(x as Collection);
+            });
+          });
         }
-      );
+      )
   }
 
+  showCollectionCard() {
+    this.isEnabledCollectionCard = !this.isEnabledCollectionCard;
+  }
+
+  enterCollection(collection: any){
+    console.log(collection);
+  }
+
+  removeCollection($key: string) {
+    this.collectionService.removeCollection($key);
+  }
 }
