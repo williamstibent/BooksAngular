@@ -25,6 +25,7 @@ export class BooksListService {
     authFire.authState
       .subscribe(
         user => {
+          debugger
           this.user = user;
           this.favsRef = rdb.list('favorites/' + this.user.uid);
         }
@@ -56,6 +57,10 @@ export class BooksListService {
     const promise = this.favsRef.push(book);
     promise.then(_ => this.alertService.message("Agregado a Favoritos", "success"));
 
+  }
+  removeFavorite(book: any){
+    const promise = this.favsRef.remove(book.key)
+    promise.then(_ => this.alertService.message("Eliminado de Favoritos", "success"));
   }
 
   getBook(id: string): Observable<any> {

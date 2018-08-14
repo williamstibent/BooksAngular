@@ -4,6 +4,7 @@ import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import * as firebase from "firebase/app";
 import { FavoritesService } from "../../services/favorites.service";
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class FavoritesComponent implements OnInit {
   bookList: Observable<any[]>;
 
   constructor(private favService: FavoritesService, private authFire: AngularFireAuth,
-    private rdb: AngularFireDatabase) { 
+    private rdb: AngularFireDatabase) {
     this.bookList = null;
   }
 
@@ -24,7 +25,12 @@ export class FavoritesComponent implements OnInit {
     this.authFire.authState
       .subscribe(
         user => {
-          this.bookList = this.rdb.list('favorites/' + user.uid).valueChanges();
+          this.bookList = this.rdb.list('favorites/' + user.uid)
+            .snapshotChanges().pipe(
+              map(changes =>
+                changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+              )
+            );
         }
       );
   }
