@@ -1,0 +1,19 @@
+<h2>Libros similares</h2>
+<div id="books-content" class="books-content">
+  <div *ngFor="let book of booksList?.items" id="book" class="book">
+    <div class="title-book">
+      <span>{{book.volumeInfo.title}}</span>
+    </div>
+    <div class="img-book">
+      <img [src]="book.volumeInfo.imageLinks?.smallThumbnail">
+    </div>
+    <div class="content-book">
+      <p>
+        {{book.volumeInfo.description}}
+      </p>
+    </div>
+    <div class="footer-book">
+      <a class="submit-detail-book" [routerLink]="['detail', book.id]">Ver Detalle</a>
+    </div>
+  </div>
+</div>

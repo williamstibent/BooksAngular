@@ -55,6 +55,26 @@ export class BooksListService {
       );
   }
 
+  searchSimilarBooks(title: string, subject: string, startIndex?: number, maxResults?: number){
+    let url = this.url + `volumes?q=subject:${subject}`;
+    if (startIndex) {
+      url += `&startIndex=${startIndex}`;
+    }
+    if (maxResults) {
+      url += `&maxResults=${maxResults}`;
+    }
+
+    this.http.get<BookList>(url)
+      .pipe(
+        catchError(this.handleError<BookList>('Get Books List', null))
+      )
+      .subscribe(
+        (books) => {
+          this.booksList.next(books);
+        }
+      );
+  }
+
   addFavorites(book: any) {
     this.favsRef.push(book).then(_ => this.alertService.message("Agregado a Favoritos", "success"));
   }
@@ -63,6 +83,7 @@ export class BooksListService {
     console.log($key)
     console.log(book)
   }
+
   removeFavorite(book: any){
     const promise = this.favsRef.remove(book.key)
     promise.then(_ => this.alertService.message("Eliminado de Favoritos", "success"));

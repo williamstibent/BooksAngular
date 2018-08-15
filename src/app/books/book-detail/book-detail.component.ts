@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router'
 import { BooksListService } from "../services/list/books-list.service";
 import { Observable } from 'rxjs';
 import { Collection } from '../../collections/models/collection';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-book-detail',
@@ -16,6 +17,7 @@ export class BookDetailComponent implements OnInit {
   book: any
   collectionList: Collection[];
   selectedCollection: string;
+  @Output() subject = new EventEmitter<string>();
 
   constructor(private router: ActivatedRoute, private bookService: BooksListService, private authFire: AngularFireAuth,
     private rdb: AngularFireDatabase) {
@@ -33,6 +35,16 @@ export class BookDetailComponent implements OnInit {
           books => {
             if (books) {
               this.book = books;
+              let categories :string[] = this.book.volumeInfo.categories;
+              let title :string = this.book.volumeInfo.title;
+              let subject :string;
+              if(categories)
+                subject = categories[0].split(" ")[0];
+              else if(title)
+                subject = title
+              this.subject.emit(subject);
+              debugger
+              this.bookService.searchSimilarBooks(title, subject)
             }
           }
         );
@@ -62,7 +74,6 @@ export class BookDetailComponent implements OnInit {
   }
 
   associateBookToCollection() {
-    debugger
     this.bookService.associateBookToCollection(this.selectedCollection, this.book);
   }
 
