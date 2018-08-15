@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient } from "@angular/common/http";
+import { catchError } from 'rxjs/operators';
 import { Observable, of, Subject } from "rxjs";
 import { MessagesService } from "../../../alerts/services/messages.service";
 import { environment } from '../../../../environments/environment';
@@ -8,6 +8,7 @@ import { BookList } from '../../model/BookList';
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from "firebase/app";
+import { MatSnackBar } from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
@@ -19,14 +20,15 @@ export class BooksListService {
   favsRef: AngularFireList<any>;
   collectionsRef: AngularFireList<any>;
   user: firebase.User;
+  fbdb: AngularFireDatabase
 
   constructor(private http: HttpClient, private alertService: MessagesService, private authFire: AngularFireAuth,
-    rdb: AngularFireDatabase) {
+    rdb: AngularFireDatabase, private snackBar: MatSnackBar) {
+    this.fbdb = rdb;
     this.booksList.next({ kind: "", totalItems: 0, items: [] });
     authFire.authState
       .subscribe(
         user => {
-          debugger
           this.user = user;
           this.favsRef = rdb.list('favorites/' + this.user.uid);
           this.collectionsRef = rdb.list('collections/' + this.user.uid);
@@ -56,16 +58,24 @@ export class BooksListService {
   }
 
   addFavorites(book: any) {
-    this.favsRef.push(book).then(_ => this.alertService.message("Agregado a Favoritos", "success"));
+    this.favsRef.push(book).then(_ => this.alertService.message("Agregado a favoritos", "success"));
+    this.snackBar.open("Agregado a favoritos", "success", {
+      duration: 2000,
+    });
   }
 
   associateBookToCollection($key: string, book: any) {
-    console.log($key)
-    console.log(book)
+    this.fbdb.list('collections/' + this.user.uid + '/' + $key + '/books').push(book).then(_ => this.alertService.message("Libro asociado a coleccion", "success"));
+    this.snackBar.open("Libro asociado a coleccion", "success", {
+      duration: 2000,
+    });
   }
-  removeFavorite(book: any){
+  removeFavorite(book: any) {
     const promise = this.favsRef.remove(book.key)
     promise.then(_ => this.alertService.message("Eliminado de Favoritos", "success"));
+    this.snackBar.open("Eliminado de favoritos", "success", {
+      duration: 2000,
+    });
   }
 
   getBook(id: string): Observable<any> {

@@ -2,16 +2,33 @@
     <div class="item-title">
         <span>{{book.volumeInfo?.title}}</span>
     </div>
-    <div>
-        <button class="btn btn-primary" (click)="addFavorite()">
-            <i class="fa fa-heart"></i>Favorito</button>
-    </div>
-    <div class="row">
-        <select [(ngModel)]="selectedCollection">
-            <option *ngFor="let collection of collectionList" [value]="collection.$key">{{ collection.name }}</option>
-        </select>
-        <button (click)="associateBookToCollection()">Asociar</button>
-    </div>
+    <br/>
+    <mat-card>
+        <mat-card-title>Acciones</mat-card-title>
+        <mat-card-subtitle>Adicionar a Favoritos</mat-card-subtitle>
+        <mat-card-content>
+            <button mat-fab (click)="addFavorite()">
+                <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+            </button>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <br/>
+        <mat-card-subtitle>Adicionar a Colecciones</mat-card-subtitle>
+        <mat-card-content>
+            <mat-grid-list cols="2" rowHeight="50px">
+                <mat-grid-tile>
+                    <mat-select placeholder="Selecciona una coleccion" [(ngModel)]="selectedCollection">
+                        <mat-option *ngFor="let collection of collectionList" [value]="collection.$key">
+                            {{ collection.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <button mat-raised-button color="warn" (click)="associateBookToCollection()">Asociar</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </mat-card-content>
+    </mat-card>
     <div class="item-body">
         <div class="item-img">
             <img [src]="book.volumeInfo?.imageLinks.smallThumbnail">

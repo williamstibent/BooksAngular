@@ -62,7 +62,6 @@ export class BookDetailComponent implements OnInit {
   }
 
   associateBookToCollection() {
-    debugger
     this.bookService.associateBookToCollection(this.selectedCollection, this.book);
   }
 

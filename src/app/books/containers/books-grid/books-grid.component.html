@@ -15,4 +15,7 @@
         <a class="submit-detail-book" [routerLink]="['detail', book.id]">Ver Detalle</a>
     </div>
   </div>
+  <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>
+<br/>
+<br/>

@@ -13,7 +13,7 @@
       </p>
     </mat-card-content>
     <mat-card-actions align="end">
-      <button mat-raised-button color="primary" (click)="enterCollection(collection)">Entrar</button>
+      <button mat-raised-button color="primary" [routerLink]="['detail', collection.$key]">Entrar</button>
       <button mat-raised-button color="accent" (click)="removeCollection(collection.$key)">Eliminar</button>
     </mat-card-actions>
   </mat-card>

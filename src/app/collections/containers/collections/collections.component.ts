@@ -40,10 +40,6 @@ export class CollectionsComponent implements OnInit {
     this.isEnabledCollectionCard = !this.isEnabledCollectionCard;
   }
 
-  enterCollection(collection: any){
-    console.log(collection);
-  }
-
   removeCollection($key: string) {
     this.collectionService.removeCollection($key);
   }

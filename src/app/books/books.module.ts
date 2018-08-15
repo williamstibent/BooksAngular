@@ -4,6 +4,7 @@ import { BooksGridComponent } from "./containers/books-grid/books-grid.component
 import { BookDetailComponent } from "./book-detail/book-detail.component";
 import { Routes, RouterModule} from "@angular/router";
 import { FormsModule } from '@angular/forms'
+import { MaterialModule } from "../material.module";
 
 const routes: Routes = [
   {
@@ -16,14 +17,15 @@ const routes: Routes = [
   },
   {
     path:'**',
-    redirectTo: '/'
+    redirectTo: ''
   }
 ];
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    FormsModule
+    FormsModule,
+    MaterialModule
   ],
   declarations: [BooksGridComponent, BookDetailComponent]
 })

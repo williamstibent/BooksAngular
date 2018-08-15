@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatInputModule, MatPaginatorModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -13,7 +16,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatCardModule,
     MatInputModule,
     MatPaginatorModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule,
+    MatGridListModule,
+    MatSnackBarModule
   ],
   exports: [
     MatToolbarModule,
@@ -24,7 +30,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatCardModule,
     MatInputModule,
     MatPaginatorModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule,
+    MatGridListModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialModule { }

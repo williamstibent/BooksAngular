@@ -6,12 +6,12 @@ export const environment = {
   production: false,
   apiBooks: 'https://www.googleapis.com/books/v1/',
   firebase: {
-    apiKey: "AIzaSyAWtK6bcEJfyXJ-paTJTqKzet_8F2mHOKI",
-    authDomain: "bzbooksangular.firebaseapp.com",
-    databaseURL: "https://bzbooksangular.firebaseio.com",
-    projectId: "bzbooksangular",
-    storageBucket: "bzbooksangular.appspot.com",
-    messagingSenderId: "125558462904"
+    apiKey: 'AIzaSyCU27jsNT8hrKCx55BL-6bWKJ_t2pbpkt0',
+    authDomain: 'biz-books-app-asdsad.firebaseapp.com',
+    databaseURL: 'https://biz-books-app-asdsad.firebaseio.com/',
+    projectId: 'biz-books-app-asdsad',
+    storageBucket: 'gs://biz-books-app-asdsad.appspot.com',
+    messagingSenderId: '789380846555'
   }
 };
 
