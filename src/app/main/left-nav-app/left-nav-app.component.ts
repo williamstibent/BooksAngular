@@ -35,7 +35,6 @@ export class LeftNavComponent implements OnInit {
     this.authFire.authState
     .subscribe(
       user => {
-        debugger
         this.user = user;
       }
     );

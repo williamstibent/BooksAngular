@@ -2,6 +2,7 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
+    padding-bottom: 48px;
 }
 .example-card {
     width: 250px;
