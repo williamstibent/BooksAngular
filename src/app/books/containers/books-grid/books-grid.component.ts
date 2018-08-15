@@ -23,4 +23,7 @@ export class BooksGridComponent implements OnInit {
       }
     );
   }
+  addFavorite(book){
+    this.bookService.addFavorites(book);
+  }
 }

@@ -43,7 +43,6 @@ export class BookDetailComponent implements OnInit {
               else if(title)
                 subject = title
               this.subject.emit(subject);
-              debugger
               this.bookService.searchSimilarBooks(title, subject)
             }
           }

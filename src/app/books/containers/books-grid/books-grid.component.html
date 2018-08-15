@@ -13,7 +13,7 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-icon-button>
-          <mat-icon aria-label="Favorite icon-button" [routerLink]="['detail', book.id]">favorite</mat-icon>
+          <mat-icon aria-label="Favorite icon-button" (click)=addFavorite(book)>favorite</mat-icon>
         </button>
         <a class="submit-detail-book" [routerLink]="['detail', book.id]">Ver Detalle</a>
       </mat-card-actions>

@@ -52,7 +52,7 @@ background-color: lightblue;
 
 #nav-header div{
     float: right;
-    flex: 1;
+    flex-grow: 2;
     margin: auto;
 }
 
