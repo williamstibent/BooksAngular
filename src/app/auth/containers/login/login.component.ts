@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { IAuth } from '../../models/user';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router, private zone: NgZone) { }
+  constructor(private authService: AuthService, private router: Router, private zone: NgZone, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -23,7 +24,9 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['main/grid']);
         },
         error => {
-          alert(error.message);
+          this.snackBar.open(error.message, "error", {
+            duration: 2000,
+          });
         }
       );
   }
@@ -40,7 +43,9 @@ export class LoginComponent implements OnInit {
           }
         ).catch(
           (err) => {
-            console.log(err);
+            this.snackBar.open(err, "error", {
+              duration: 2000,
+            });
           }
         );
     }

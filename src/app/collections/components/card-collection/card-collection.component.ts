@@ -19,6 +19,5 @@ export class CardCollectionComponent implements OnInit {
 
   addCollection(){
     this.collectionService.addCollection(this.collection);
-    this.collection = new Collection;
   }
 }
