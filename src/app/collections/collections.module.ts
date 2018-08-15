@@ -4,12 +4,21 @@ import { CollectionsComponent } from "./containers/collections/collections.compo
 import { MaterialModule } from "../material.module";
 import { CommonModule } from '@angular/common';
 import { CardCollectionComponent } from './components/card-collection/card-collection.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { BooksGridComponent } from './components/books-grid/books-grid.component'
 
 const routes: Routes = [
   {
     path: '',
     component: CollectionsComponent
+  },
+  {
+    path: 'detail/:id',
+    component: BooksGridComponent
+  },
+  {
+    path:'**',
+    redirectTo: ''
   }
 ];
 @NgModule({
@@ -19,6 +28,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
   ],
-  declarations: [CollectionsComponent, CardCollectionComponent]
+  declarations: [CollectionsComponent, CardCollectionComponent, BooksGridComponent]
 })
 export class CollectionsModule { }

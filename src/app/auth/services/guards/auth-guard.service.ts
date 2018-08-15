@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, CanActivateChild } from '@angular/router';
 import { Observable, of } from 'rxjs';
+import { AuthService } from "../auth/auth.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuardService implements CanActivate, CanActivateChild {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   canActivate(): Observable<boolean> {
-    if (!localStorage.getItem('bzgBooksApp')) {
+    if(!this.authService.isLoggedIn() && !localStorage.getItem('bzgBooksApp')){
       this.router.navigate(['/login']);
       return of(false);
     }
@@ -18,7 +19,7 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
   }
 
   canActivateChild(): Observable<boolean> {
-    if (!localStorage.getItem('bzgBooksApp')) {
+    if(!this.authService.isLoggedIn() && !localStorage.getItem('bzgBooksApp')){
       this.router.navigate(['/login']);
       return of(false);
     }

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { trigger, transition, state, style, animate } from "@angular/animations";
 import { AuthService } from '../../auth/services/auth/auth.service';
-import { User } from 'firebase/app';
+import * as firebase from "firebase/app";
 import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
@@ -25,7 +25,7 @@ export class LeftNavComponent implements OnInit {
 
   @Input() asideState: string
   today: Date
-  user: User;
+  user: firebase.User;
 
   constructor(private authService: AuthService, private authFire: AngularFireAuth) {
     this.today = new Date()
@@ -35,6 +35,7 @@ export class LeftNavComponent implements OnInit {
     this.authFire.authState
     .subscribe(
       user => {
+        debugger
         this.user = user;
       }
     );

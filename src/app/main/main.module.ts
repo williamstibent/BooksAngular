@@ -8,13 +8,11 @@ import { TopNavAppComponent } from "./top-nav-app/top-nav-app.component";
 import { routes } from "./routes";
 import { MaterialModule } from '../material.module';
 import { EmailPipe } from "../app-pipes/pipes/email.pipe";
-import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
   imports: [
     CommonModule,
     MaterialModule,
-    AuthModule,
     RouterModule.forChild(routes)
   ],
   declarations: [MainComponent, LeftNavComponent,

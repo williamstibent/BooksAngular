@@ -16,12 +16,11 @@ export class LoginComponent implements OnInit {
   }
 
   login(event: IAuth) {
-    //
     this.authService.login(event)
       .then(
         auth => {
           localStorage.setItem('bzgBooksApp', JSON.stringify(auth));
-          this.router.navigate(['main']);
+          this.router.navigate(['main/grid']);
         },
         error => {
           alert(error.message);
@@ -36,7 +35,7 @@ export class LoginComponent implements OnInit {
           data => {
             localStorage.setItem('bzgBooksApp', JSON.stringify(data));
             this.zone.run(() => {
-              this.router.navigate(['main/books/list']);
+              this.router.navigate(['main/grid']);
             });
           }
         ).catch(

@@ -3,6 +3,7 @@ import { environment } from '../../../environments/environment';
 import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { MessagesService } from '../../alerts/services/messages.service';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { MatSnackBar } from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class CollectionsService {
   user: firebase.User;
 
   constructor(private alertService: MessagesService, private authFire: AngularFireAuth,
-    rdb: AngularFireDatabase) {
+    rdb: AngularFireDatabase, private snackBar: MatSnackBar) {
       authFire.authState
       .subscribe(
         user => {
@@ -25,11 +26,16 @@ export class CollectionsService {
   }
 
   addCollection(collection: any) {
-    this.collectionsRef.push(collection).then(_ => this.alertService.message("Agregado a Colecciones", "success"));
+    this.collectionsRef.push(collection).then(_ => this.alertService.message("Coleccion agregada", "success"));
+    this.snackBar.open("Coleccion agregada", "success", {
+      duration: 2000,
+    });
   }
 
   removeCollection($key: string) {
-    debugger
-    this.collectionsRef.remove($key)
+    this.collectionsRef.remove($key).then(_ => this.alertService.message("Coleccion eliminada", "success"));
+    this.snackBar.open("Coleccion eliminada", "success", {
+      duration: 2000,
+    });
   }
 }
