@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin(event: IAuth) {
-    debugger
     this.authService.login(event)
       .then(
         auth => {

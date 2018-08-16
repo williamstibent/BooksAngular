@@ -20,7 +20,6 @@ export class BooksGridComponent implements OnInit {
       this.authFire.authState
       .subscribe(
         user => {
-          debugger
           this.rdb.list('collections/' + user.uid + '/' + id + '/books').snapshotChanges()
           .subscribe(item => {
             this.booksCollections = [];

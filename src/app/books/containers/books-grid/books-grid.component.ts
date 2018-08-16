@@ -15,7 +15,6 @@ export class BooksGridComponent implements OnInit {
   pageSizeOptions: number[]
 
   constructor(private bookService: BooksListService) {
-    debugger
     this.pageSize = 3
     this.pageSizeOptions = [3, 6, 9];
     this.bookService.searchBooks('Colombia', 0, this.pageSize);
