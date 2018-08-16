@@ -30,6 +30,10 @@ export class LoginFormComponent implements OnInit {
     this.signByGoogle.emit(true);
   }
 
+  signFacebook(){
+    this.signByGoogle.emit(true);
+  }
+
   createUser(){
     this.createUserO.emit(this.login);
   }

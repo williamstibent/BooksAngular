@@ -10,13 +10,15 @@ import { EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-book-detail',
   templateUrl: './book-detail.component.html',
-  styleUrls: ['./book-detail.component.css']
+  styleUrls: ['./book-detail.component.css'],
 })
 export class BookDetailComponent implements OnInit {
 
   book: any
   collectionList: Collection[];
   selectedCollection: string;
+  score : number = 0;
+  displayRatingScore = 4;
   @Output() subject = new EventEmitter<string>();
 
   constructor(private router: ActivatedRoute, private bookService: BooksListService, private authFire: AngularFireAuth,
@@ -35,6 +37,7 @@ export class BookDetailComponent implements OnInit {
           books => {
             if (books) {
               this.book = books;
+              this.displayRatingScore = this.book.volumeInfo.averageRating || 0;
               let categories :string[] = this.book.volumeInfo.categories;
               let title :string = this.book.volumeInfo.title;
               let subject :string;
@@ -74,6 +77,9 @@ export class BookDetailComponent implements OnInit {
 
   associateBookToCollection() {
     this.bookService.associateBookToCollection(this.selectedCollection, this.book);
+  }
+  onRateChange = (score) => {
+    this.score = score;
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'book-rating',
@@ -7,37 +7,47 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BookRatingComponent implements OnInit {
 
-  _score: any;
-  _index = 0;
-  range = [];
+  @Input() score;
+  @Input() maxScore = 5;
+  @Input() forDisplay = false;
+  @Output() rateChanged = new EventEmitter();
 
-  constructor() {
-  }
+  range = [];
+  marked = -1;
+
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  @Input()
-  set score(score: any) {
-    if (score) {
-      this._score = score - 1;
-      this.range = [0,1,2,3,4]
-      /* for (var i = 0; i < this.maxScore; i++) {
-        this.range.push(i);
-      } */
+    for (var i = 0; i < this.maxScore; i++) {
+      this.range.push(i);
     }
   }
 
-  get score(): any { return this._score; }
+  public mark = (index) => {
+    this.marked = this.marked == index ? index - 1 : index;
+    this.score = this.marked + 1;
+    this.rateChanged.next(this.score);
+  }
 
-
-  public isMarked (){
-    this._index++;
-    if (this._index <= this._score) {
-      return 'fa-star';
+  public isMarked = (index) => {
+    if (!this.forDisplay) {
+      if (index <= this.marked) {
+        return 'fa-star';
+      }
+      else {
+        return 'fa-star-o';
+      }
     }
     else {
-      return 'fa-star-o';
+      if (this.score >= index + 1) {
+        return 'fa-star';
+      }
+      else if (this.score > index && this.score < index + 1) {
+        return 'fa-star-half-o';
+      }
+      else {
+        return 'fa-star-o';
+      }
     }
   }
 
