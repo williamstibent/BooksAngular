@@ -17,6 +17,7 @@ export class BooksListService {
 
   url = environment.apiBooks;
   booksList: Subject<BookList> = new Subject();
+  allBooksList: Subject<BookList> = new Subject();
   favsRef: AngularFireList<any>;
   collectionsRef: AngularFireList<any>;
   user: firebase.User;
@@ -26,6 +27,7 @@ export class BooksListService {
     rdb: AngularFireDatabase, private snackBar: MatSnackBar) {
     this.fbdb = rdb;
     this.booksList.next({ kind: "", totalItems: 0, items: [] });
+    this.allBooksList.next({ kind: "", totalItems: 0, items: [] });
     authFire.authState
       .subscribe(
         user => {
@@ -55,9 +57,24 @@ export class BooksListService {
           this.booksList.next(books);
         }
       );
+
+      this.searchAllBooks(text);
   }
 
-  searchSimilarBooks(title: string, subject: string, startIndex?: number, maxResults?: number){
+  searchAllBooks(text: string) {
+    let url = this.url + `volumes?q=${text}`;
+    this.http.get<BookList>(url)
+      .pipe(
+        catchError(this.handleError<BookList>('Get Books List', null))
+      )
+      .subscribe(
+        (books) => {
+          this.allBooksList.next(books);
+        }
+      );
+  }
+
+  searchSimilarBooks(title: string, subject: string, startIndex?: number, maxResults?: number) {
     let url = this.url + `volumes?q=subject:${subject}`;
     if (startIndex) {
       url += `&startIndex=${startIndex}`;

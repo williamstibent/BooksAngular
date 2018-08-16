@@ -1,4 +1,5 @@
-<top-nav-app class="top-nav-app" (actionAside)="closeAside($event)"></top-nav-app>
+<top-nav-app class="top-nav-app" (actionAside)="closeAside($event)" (mouseenter)="toggleProfileAside = true" (mouseleave)="toggleProfileAside = false"></top-nav-app>
+<app-aside-right-profile *ngIf="toggleProfileAside"></app-aside-right-profile>
 <div id="content">
   <left-nav-app [asideState]="stateAside"></left-nav-app>
   <main-content class="page-content"></main-content>

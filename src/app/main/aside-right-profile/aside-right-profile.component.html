@@ -1,0 +1,26 @@
+<div class="aside-profile">
+  <mat-card>
+      <mat-card-title>Perfil</mat-card-title>
+      <mat-grid-list cols="2" rowHeight="80px">
+          <mat-grid-tile>
+              <img [src]="user?.photoURL" height="80px" width="80px">
+          </mat-grid-tile>
+          <mat-grid-tile>
+              {{user?.displayName}}
+              {{user?.email}}
+          </mat-grid-tile>
+      </mat-grid-list>
+      <br/>
+      <mat-divider></mat-divider>
+      <mat-grid-list cols="3" rowHeight="50px">
+          <mat-grid-tile>Colecciones</mat-grid-tile>
+          <mat-grid-tile></mat-grid-tile>
+          <mat-grid-tile>Favoritos</mat-grid-tile>
+      </mat-grid-list>
+      <mat-grid-list cols="3" rowHeight="50px">
+          <mat-grid-tile>{{collectionsNumber}}</mat-grid-tile>
+          <mat-grid-tile></mat-grid-tile>
+          <mat-grid-tile>{{favoriteNumber}}</mat-grid-tile>
+      </mat-grid-list>
+  </mat-card>
+</div>

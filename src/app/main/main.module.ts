@@ -8,6 +8,7 @@ import { TopNavAppComponent } from "./top-nav-app/top-nav-app.component";
 import { routes } from "./routes";
 import { MaterialModule } from '../material.module';
 import { EmailPipe } from "../app-pipes/pipes/email.pipe";
+import { AsideRightProfileComponent } from './aside-right-profile/aside-right-profile.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { EmailPipe } from "../app-pipes/pipes/email.pipe";
     RouterModule.forChild(routes)
   ],
   declarations: [MainComponent, LeftNavComponent,
-    MainContentComponent, TopNavAppComponent, EmailPipe],
+    MainContentComponent, TopNavAppComponent, EmailPipe, AsideRightProfileComponent],
   exports: [MainComponent]
 })
 export class MainModule { }

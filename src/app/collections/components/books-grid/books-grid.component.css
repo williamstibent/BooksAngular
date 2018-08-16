@@ -24,3 +24,10 @@
 .mat-card-image {
     height: 400px;
 }
+
+.books-content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding-bottom: 48px;
+}

@@ -1,0 +1,8 @@
+.aside-profile{
+    position: absolute;
+    z-index: 2;
+    top: 1%;
+    right: 2%;
+    width: 400px;
+    height: 300px;
+}

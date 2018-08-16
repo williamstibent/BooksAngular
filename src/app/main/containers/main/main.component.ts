@@ -8,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class MainComponent implements OnInit {
 
   stateAside: string
+  toggleProfileAside: boolean
 
   constructor() {
     this.stateAside = 'open'
+    this.toggleProfileAside = false;
    }
 
   ngOnInit() {
