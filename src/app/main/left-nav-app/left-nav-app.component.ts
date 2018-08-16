@@ -3,6 +3,7 @@ import { trigger, transition, state, style, animate } from "@angular/animations"
 import { AuthService } from '../../auth/services/auth/auth.service';
 import * as firebase from "firebase/app";
 import { AngularFireAuth } from 'angularfire2/auth';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'left-nav-app',
@@ -27,7 +28,7 @@ export class LeftNavComponent implements OnInit {
   today: Date
   user: firebase.User;
 
-  constructor(private authService: AuthService, private authFire: AngularFireAuth) {
+  constructor(private authService: AuthService, private authFire: AngularFireAuth, private dialog: MatDialog) {
     this.today = new Date()
   }
   
@@ -41,6 +42,7 @@ export class LeftNavComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout();
+    if (confirm('¿Estás seguro que deseas salir?'))
+      this.authService.logout();
   }
 }

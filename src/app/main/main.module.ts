@@ -9,6 +9,7 @@ import { routes } from "./routes";
 import { MaterialModule } from '../material.module';
 import { EmailPipe } from "../app-pipes/pipes/email.pipe";
 import { SearchFormComponent } from './search-form/search-form.component';
+import { AsideRightProfileComponent } from './aside-right-profile/aside-right-profile.component';
 
 @NgModule({
   imports: [
@@ -16,8 +17,8 @@ import { SearchFormComponent } from './search-form/search-form.component';
     MaterialModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [MainComponent, LeftNavComponent,
-    MainContentComponent, TopNavAppComponent, EmailPipe, SearchFormComponent],
+  declarations: [MainComponent, LeftNavComponent, SearchFormComponent,
+    MainContentComponent, TopNavAppComponent, EmailPipe, AsideRightProfileComponent],
   exports: [MainComponent]
 })
 export class MainModule { }

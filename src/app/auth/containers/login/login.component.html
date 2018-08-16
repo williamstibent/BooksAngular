@@ -2,5 +2,5 @@
   <mat-toolbar color="primary">
     <span>Login</span>
   </mat-toolbar>
-  <app-login-form (submitted)="login($event)" (signByGoogle)="signGoogle($event)"></app-login-form>
+  <app-login-form (makeLogin)="doLogin($event)" (signByGoogle)="signGoogle($event)" (createUserO)="createUser($event)"></app-login-form>
 </mat-card>

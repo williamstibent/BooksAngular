@@ -20,7 +20,8 @@ export class CardBookComponent implements OnInit {
   }
 
   removeFavorite() {
-    this.bookService.removeFavorite(this.book)
+    if (confirm('¿Estás seguro que deseas remover el libro de favoritos?'))
+      this.bookService.removeFavorite(this.book)
   }
 
 }

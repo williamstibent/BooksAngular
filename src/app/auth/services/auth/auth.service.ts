@@ -26,6 +26,10 @@ export class AuthService {
       );
   }
 
+  createUser(auth: Auth) {
+    return this.authFire.auth.createUserWithEmailAndPassword(auth.email, auth.password)
+  }
+
   signInWithGoogle() {
     return this.authFire.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider()

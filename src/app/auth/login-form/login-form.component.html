@@ -1,4 +1,4 @@
-<form (ngSubmit)="submit()" #loginForm="ngForm">
+<form #loginForm="ngForm">
   <mat-card-content>
     <table cellspacing="0">
       <tr>
@@ -24,7 +24,8 @@
     </table>
   </mat-card-content>
   <mat-card-actions>
-    <button type="submit" mat-raised-button color="accent" [disabled]="!loginForm.form.valid">Login</button>
+    <button mat-raised-button color="accent" [disabled]="!loginForm.form.valid" (click)="doLogin()">Login</button>
+    <button mat-stroked-button [disabled]="!loginForm.form.valid" (click)="createUser()" color="primary">Registrarse</button>
   </mat-card-actions>
   <mat-card-actions>
     <button mat-raised-button (click)="signGoogle()" color="warn">Sign in using Google+</button>

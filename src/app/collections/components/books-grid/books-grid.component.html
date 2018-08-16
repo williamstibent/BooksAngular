@@ -1,3 +1,25 @@
-<p>
-  books-grid works!
-</p>
+<section class="container content">
+  <div class="row">
+    <div class="col-12">
+      <h2>Mis Libros en la Coleccion</h2>
+    </div>
+  </div>
+  <div class="books-content">
+    <div *ngFor="let book of booksCollections" class="col-12 col-sm-12 col-md-6 col-lg-3">
+      <mat-card class="example-card">
+        <mat-card-header class="card-header">
+          <mat-card-title class="card-title">{{book.volumeInfo.title}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="book.volumeInfo.imageLinks.smallThumbnail" alt="Book image">
+        <mat-card-content class="card-content" style="-webkit-box-orient: vertical">
+          <p>
+            {{book.volumeInfo.description}}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>
+<mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+<br/>
+<br/>
