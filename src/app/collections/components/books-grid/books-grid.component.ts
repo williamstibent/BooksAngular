@@ -10,21 +10,18 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 })
 export class BooksGridComponent implements OnInit {
 
-  user: firebase.User;
   booksCollections: any[];
 
   constructor(private router: ActivatedRoute, private authFire: AngularFireAuth, private rdb: AngularFireDatabase) {
     this.booksCollections = null;
-  }
-
-  ngOnInit() {
     let id: string
     this.router.params.subscribe((params: Params) => {
       id = params.id;
       this.authFire.authState
       .subscribe(
         user => {
-          this.rdb.list('collections/' + this.user.uid + '/' + id + '/books').snapshotChanges()
+          debugger
+          this.rdb.list('collections/' + user.uid + '/' + id + '/books').snapshotChanges()
           .subscribe(item => {
             this.booksCollections = [];
             item.forEach(element => {
@@ -36,6 +33,9 @@ export class BooksGridComponent implements OnInit {
         }
       )
     });
+  }
+
+  ngOnInit() {
   }
 
 }

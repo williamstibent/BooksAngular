@@ -41,6 +41,7 @@ export class CollectionsComponent implements OnInit {
   }
 
   removeCollection($key: string) {
-    this.collectionService.removeCollection($key);
+    if (confirm('¿Estás seguro que deseas eliminar la colección?'))
+      this.collectionService.removeCollection($key);
   }
 }

@@ -10,6 +10,8 @@ export class LoginFormComponent implements OnInit {
 
   @Output() submitted = new EventEmitter<IAuth>();
   @Output() signByGoogle = new EventEmitter<boolean>();
+  @Output() createUserO = new EventEmitter<IAuth>();
+  @Output() makeLogin = new EventEmitter<IAuth>();
 
   login: IAuth;
 
@@ -26,5 +28,13 @@ export class LoginFormComponent implements OnInit {
 
   signGoogle(){
     this.signByGoogle.emit(true);
+  }
+
+  createUser(){
+    this.createUserO.emit(this.login);
+  }
+
+  doLogin(){
+    this.makeLogin.emit(this.login);
   }
 }

@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(event: IAuth) {
+  doLogin(event: IAuth) {
+    debugger
     this.authService.login(event)
       .then(
         auth => {
@@ -29,6 +30,23 @@ export class LoginComponent implements OnInit {
           });
         }
       );
+  }
+
+  createUser(event: IAuth) {
+    this.authService.createUser(event)
+      .then(
+        userRecord => {
+          this.snackBar.open('Usuario creado', "success", {
+            duration: 2000,
+          });
+          this.router.navigate(['login']);
+        },
+        error => {
+          this.snackBar.open(error.message, "error", {
+            duration: 2000,
+          });
+        }
+      )
   }
 
   signGoogle(event) {
