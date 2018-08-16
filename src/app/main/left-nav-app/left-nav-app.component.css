@@ -16,7 +16,7 @@ nav li {
     display: block;
     width: 100%;
     border-bottom: 1px solid #ccc;
-    background-color: var(--accent-color);
+    background-color: rgba(0,0,0,.03);
 }
 
 nav li > a {
