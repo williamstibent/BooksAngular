@@ -6,6 +6,7 @@ import { Routes, RouterModule} from "@angular/router";
 import { FormsModule } from '@angular/forms';
 import { SimilarBooksComponent } from './similar-books/similar-books.component'
 import { MaterialModule } from '../material.module';
+import { BookRatingComponent } from './book-rating/book-rating.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,6 @@ const routes: Routes = [
     FormsModule,
     MaterialModule
   ],
-  declarations: [BooksGridComponent, BookDetailComponent, SimilarBooksComponent]
+  declarations: [BooksGridComponent, BookDetailComponent, SimilarBooksComponent, BookRatingComponent]
 })
 export class BooksModule { }

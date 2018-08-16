@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router'
 import { BooksListService } from "../services/list/books-list.service";
 import { Observable } from 'rxjs';

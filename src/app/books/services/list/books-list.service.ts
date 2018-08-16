@@ -78,6 +78,7 @@ export class BooksListService {
   }
 
   addFavorites(book: any) {
+    this.favsRef.query
     this.favsRef.push(book).then(_ => this.alertService.message("Agregado a favoritos", "success"));
     this.snackBar.open("Agregado a favoritos", "success", {
       duration: 2000,

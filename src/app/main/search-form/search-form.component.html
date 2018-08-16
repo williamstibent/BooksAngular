@@ -1,0 +1,7 @@
+<div class="input-group">
+    <input matInput placeholder="Buscar..." aria-label="Recipient's username" aria-describedby="basic-addon2" #search name="searchBooks"
+      (change)="searchBooks(search.value)">
+  <button mat-icon-button class="search-button" type="button" (click)="searchBooks(search.value)">
+    <mat-icon>search</mat-icon>
+  </button>
+</div>
