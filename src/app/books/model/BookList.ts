@@ -1,5 +1,5 @@
 export interface BookList {
     kind: string;
-    totalItems: number;
+    totalItems?: number;
     items: any[];
 }

@@ -39,7 +39,9 @@ export class BooksListService {
   }
 
   searchBooks(text: string, startIndex?: number, maxResults?: number) {
-
+    if(!text){
+      text='Colombia'
+    }
     let url = this.url + `volumes?q=${text}`;
     if (startIndex) {
       url += `&startIndex=${startIndex}`;

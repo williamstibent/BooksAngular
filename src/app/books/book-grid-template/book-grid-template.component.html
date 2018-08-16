@@ -4,7 +4,7 @@
       <span>{{book.volumeInfo.title}}</span>
     </div>
     <div class="img-book">
-      <img [src]="book.volumeInfo.imageLinks.smallThumbnail">
+      <img [src]="book.volumeInfo.imageLinks?.smallThumbnail">
     </div>
     <div class="content-book">
         <p>

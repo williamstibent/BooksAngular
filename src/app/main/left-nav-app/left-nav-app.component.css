@@ -16,6 +16,7 @@ nav li {
     display: block;
     width: 100%;
     border-bottom: 1px solid #ccc;
+    background-color: var(--accent-color);
 }
 
 nav li > a {
@@ -35,7 +36,7 @@ background-color: lightblue;
 }
 
 #nav-header{
-    background-color: var(--accent-color);
+    background-color: lightgray;
     height: 160px;
     display: flex;
     padding-left: 10px;
@@ -59,4 +60,7 @@ background-color: lightblue;
 #nav-header > img{
     margin: auto;
     margin-right: 8px;
+}
+.user-image > img{
+    border-radius: 50%;
 }

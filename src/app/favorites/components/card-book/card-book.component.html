@@ -3,7 +3,7 @@
     <mat-card-title class="card-title">{{book.volumeInfo.title}}</mat-card-title>
     <mat-card-subtitle class="card-subtitle">{{book.volumeInfo.authors}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="book.volumeInfo.imageLinks.smallThumbnail" alt="Book image">
+  <img mat-card-image [src]="book.volumeInfo.imageLinks?.smallThumbnail" alt="Book image">
   <mat-card-content class="card-content" style="-webkit-box-orient: vertical">
     <p>
       {{book.volumeInfo.description}}
